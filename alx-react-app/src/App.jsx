@@ -1,3 +1,4 @@
+import UserProfile from './components/UserProfile'
 import Header from './components/Header'
 import MainContent from './components/MainContent'
 import Footer from './components/Footer'
@@ -21,7 +22,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      
+
       <div>
             <WelcomeMessage />
       </div>
@@ -30,6 +31,10 @@ function App() {
         <Header />
         <Footer />
         <MainContent />
+      </div>
+
+      <div>
+        <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       </div>
 
       <div className="card">
