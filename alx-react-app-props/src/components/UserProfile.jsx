@@ -1,9 +1,15 @@
-const UserProfile = (props) => {
+// src/components/UserProfile.jsx
+import React, { useContext } from 'react';  // Import React and useContext from 'react'
+import UserContext from './UserContext';    // Import UserContext from the correct path
+
+const UserProfile = () => {
+    const { name, age, bio } = useContext(UserContext); // Use useContext to access UserContext
+
     return (
         <div>
-            <h2>{props.name}</h2>
-            <p>Age: {props.age}</p>
-            <p>Bio: {props.bio}</p>
+            <h2>{name}</h2>
+            <p>Age: {age}</p>
+            <p>Bio: {bio}</p>
         </div>
     );
 };
