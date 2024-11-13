@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import RecipeDetails from './components/RecipeDetails';
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeList from './components/RecipeList'
 import { useState } from 'react'
@@ -20,12 +22,19 @@ function App() {
       </div>
 
       <h1>Vite + React</h1>
+      <Router>
+        <div>
+          <AddRecipeForm />
+          <RecipeList />
+        </div>
 
-      <div>
-        <AddRecipeForm />
-        <RecipeList />
-      </div>
-      
+        <Routes>
+          <Route path="/" element={<RecipeList />} />
+          <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
+        </Routes>
+
+      </Router>
+
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
