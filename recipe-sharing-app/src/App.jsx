@@ -1,3 +1,4 @@
+import SearchBar from './components/SearchBar';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import RecipeDetails from './components/RecipeDetails';
 import AddRecipeForm from './components/AddRecipeForm'
@@ -26,6 +27,7 @@ function App() {
         <div>
           <AddRecipeForm />
           <RecipeList />
+          <SearchBar />
         </div>
 
         <Routes>
