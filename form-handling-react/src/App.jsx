@@ -1,4 +1,4 @@
-import FormikForm from './components/formickForm'
+import FormikForm from './components/formikForm'
 import RegistrationForm from './components/RegistrationForm'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
