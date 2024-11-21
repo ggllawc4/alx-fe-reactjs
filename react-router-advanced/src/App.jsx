@@ -29,7 +29,7 @@ function App() {
                   />
 
                   {/* Dynamic Blog Post Page */}
-                  <Route path="/blog/:postId" element={<BlogPost />} />
+                  <Route path="/blog/:id" element={<BlogPost />} />
 
                   {/* Fallback Route */}
                   <Route path="*" element={<Navigate to="/" />} />
