@@ -12,6 +12,7 @@ const App = () => {
           <Search />
         </div>
       </main>
+      
       <Footer />
     </div>
   );
