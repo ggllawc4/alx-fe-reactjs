@@ -20,6 +20,29 @@ export const fetchAdvancedUsers = async (query) => {
       throw new Error('Failed to fetch users');
     }
   };
+
+  /**
+ * Fetch user data by username.
+ * @param {string} username - GitHub username to search for.
+ * @returns {Promise<Object>} - Single user data from search results.
+ */
+export const fetchUserData = async (username) => {
+    try {
+      // Use the search endpoint with the username query
+      const url = `${BASE_URL}${username}`;
+      const response = await axios.get(url);
+  
+      // Return the first user from the search results
+      if (response.data.items.length > 0) {
+        return response.data.items[0]; // Return the first matching user
+      } else {
+        throw new Error('User not found');
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      throw new Error('User not found');
+    }
+  };  
   
   /**
    * Helper to build a search query string.

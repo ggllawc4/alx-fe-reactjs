@@ -45,26 +45,25 @@ const Search = () => {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center space-y-7">
       <form onSubmit={handleSubmit} className="space-y-4">
-        
         <input
-          type="text"
-          placeholder="Enter GitHub username..."
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="border rounded p-2 w-2/3"
+        type="text"
+        placeholder="Enter GitHub username..."
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        className="border rounded p-2 w-2/3"
         />
 
         <input
-          type="text"
-          placeholder="Enter location..."
-          value={location} // Controlled input for location
-          onChange={(e) => setLocation(e.target.value)} // Update location state
-          className="border rounded p-2 w-2/3"
+        type="text"
+        placeholder="Enter location..."
+        value={location} // Controlled input for location
+        onChange={(e) => setLocation(e.target.value)} // Update location state
+        className="border rounded p-2 w-2/3 mx-2"
         />
         
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+        <button type="submit" className="bg-blue-600 text-white py-2 rounded">
           Search
         </button>
       </form>

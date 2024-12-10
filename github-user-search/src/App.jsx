@@ -5,10 +5,12 @@ import Search from './components/Search';
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-gray-100">
+    <div className="flex flex-col min-h-screen pt-10">
       <Header />
-      <main className="container mx-auto p-4">
-        <Search />
+      <main className="flex-grow flex items-center justify-center bg-gray-100 px-4">
+        <div className="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg">
+          <Search />
+        </div>
       </main>
       <Footer />
     </div>
