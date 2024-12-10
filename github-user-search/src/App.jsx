@@ -12,10 +12,7 @@ const App = () => {
           <Search />
         </div>
       </main>
-      <Footer className="bg-green-700 text-white py-4 text-center">
-
-      </Footer>
-
+      <Footer />
     </div>
   );
 };
