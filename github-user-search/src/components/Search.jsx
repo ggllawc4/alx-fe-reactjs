@@ -70,7 +70,7 @@ const Search = () => {
 
       <button
         onClick={handleFetchUser}
-        className="bg-green-600 text-white px-4 py-2 rounded mt-4"
+        className="bg-green-700 text-white px-4 py-2 rounded mt-4"
       >
         Fetch User Details
       </button>
