@@ -5,7 +5,9 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(query);
+    if (username.trim()) {
+      onSearch(username);
+    }
   };
 
   return (
