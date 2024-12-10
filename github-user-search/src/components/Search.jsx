@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { fetchAdvancedUsers } from '../services/githubService'; // Import the API function
+import { fetchUserData, fetchAdvancedUsers, buildQuery } from '../services/githubService'; // Import the API function
 
 const Search = () => {
   // State variables
   const [username, setUsername] = useState('');
   const [location, setLocation] = useState('');
   const [users, setUsers] = useState([]);
+  const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -24,6 +25,22 @@ const Search = () => {
       setError("Looks like we cant find the user"); // Handle error
     } finally {
       setLoading(false); // Clear loading state
+    }
+  };
+
+  //Async function for fetching a single user by username
+  const handleFetchUser = async () => {
+    setError(null);
+    setUserDetails(null);
+    setLoading(true);
+
+    try {
+      const userData = await fetchUserData(username); // Call fetchUserData
+      setUserDetails(userData); // Set single user data
+    } catch (err) {
+      setError("User not found.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -52,13 +69,40 @@ const Search = () => {
         </button>
       </form>
 
+      <button
+        onClick={handleFetchUser}
+        className="bg-green-600 text-white px-4 py-2 rounded mt-4"
+      >
+        Fetch User Details
+      </button>
+
       
       {loading && <p>Loading...</p>}
 
       
       {error && <p className="text-red-500">{error}</p>}
 
-      
+      {/* Display single user details */}
+      {userDetails && (
+        <div className="border p-4 rounded shadow mt-6">
+          <img
+            src={userDetails.avatar_url}
+            alt={userDetails.login}
+            className="w-16 h-16 rounded-full mx-auto"
+          />
+          <h2 className="text-lg font-bold mt-2">{userDetails.login}</h2>
+          <p>{userDetails.bio || 'No bio available'}</p>
+          <a
+            href={userDetails.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 mt-2 inline-block"
+          >
+            View Profile
+          </a>
+        </div>
+      )}
+
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {users.map((user) => (
           <div key={user.id} className="border p-4 rounded shadow">
@@ -70,6 +114,7 @@ const Search = () => {
             />
 
             <h2 className="text-lg font-bold mt-2">{user.login}</h2>
+            <p>{user.location || 'No location provided'}</p>
             <a
               href={user.html_url}
               target="_blank"
