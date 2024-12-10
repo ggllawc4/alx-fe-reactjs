@@ -4,6 +4,7 @@ import { fetchAdvancedUsers } from '../services/githubService'; // Import the AP
 const Search = () => {
   // State variables
   const [username, setUsername] = useState('');
+  const [location, setLocation] = useState('');
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -35,6 +36,14 @@ const Search = () => {
           placeholder="Enter GitHub username..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="border rounded p-2 w-2/3"
+        />
+
+        <input
+          type="text"
+          placeholder="Enter location..."
+          value={location} // Controlled input for location
+          onChange={(e) => setLocation(e.target.value)} // Update location state
           className="border rounded p-2 w-2/3"
         />
         
