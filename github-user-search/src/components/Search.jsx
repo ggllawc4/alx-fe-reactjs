@@ -19,7 +19,7 @@ const Search = () => {
         setUser(userData); // Set user data
       })
       .catch(() => {
-        setError("Looks like we can't find the user"); // Handle error
+        setError("Looks like we cant find the user"); // Handle error
       })
       .finally(() => {
         setLoading(false); // End loading state
