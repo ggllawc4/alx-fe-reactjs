@@ -20,7 +20,7 @@ const Search = () => {
       const result = await fetchAdvancedUsers(query); // Await API call
       setUsers(result.items); // Set the users from the API response
     } catch (err) {
-      setError("No users found for the specified criteria."); // Handle error
+      setError("Looks like we cant find the user"); // Handle error
     } finally {
       setLoading(false); // Clear loading state
     }
